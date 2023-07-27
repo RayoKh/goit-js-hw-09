@@ -3,17 +3,17 @@ const refs = {
   startBtn: document.querySelector('button[data-start]'),
   stopBtn: document.querySelector('button[data-stop]'),
 };
-refs.stopBtn.classList.add('disabled');
+refs.stopBtn.disabled = true;
 let timerId = null;
 
 refs.startBtn.addEventListener('click', onStartBtnHandler);
 refs.stopBtn.addEventListener('click', onStopBtnHandler);
 
 function onStartBtnHandler() {
-  if (refs.startBtn.classList.contains('disabled')) return;
+  if (refs.startBtn.disabled) return;
 
-  refs.startBtn.classList.add('disabled');
-  refs.stopBtn.classList.remove('disabled');
+  refs.startBtn.disabled = true;
+  refs.stopBtn.disabled = false;
 
   timerId = setInterval(() => {
     const randomColor = getRandomHexColor();
@@ -23,7 +23,7 @@ function onStartBtnHandler() {
 }
 
 function onStopBtnHandler() {
-  refs.startBtn.classList.remove('disabled');
+  refs.startBtn.disabled = false;
   clearInterval(timerId);
 }
 
