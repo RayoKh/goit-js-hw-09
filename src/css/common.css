@@ -16,3 +16,12 @@ img {
   display: block;
   max-width: 100%;
 }
+
+.cs-btn {
+  width: 60px;
+  height: 40px;
+}
+
+.disabled {
+  background-color: darkgray;
+}
